@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FunSharp.Tests
+namespace FunSharp
 {
     [TestFixture]
     public class MaybeTests
