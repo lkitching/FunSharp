@@ -282,6 +282,23 @@ namespace FunSharp
             Assert.AreEqual(m1.GetHashCode(), m2.GetHashCode(), "Equal maybes should have same hash code");
         }
 
+        [Test]
+        public void None_Should_Override_ToString()
+        {
+            var m = Maybe.None<string>();
+            Assert.AreEqual("None", m.ToString());
+        }
+
+        [Test]
+        public void Some_Should_Override_ToString()
+        {
+            string value = "test";
+            string expected = string.Format("Some({0})", value);
+
+            var m = Maybe.Some(value);
+            Assert.AreEqual(expected, m.ToString());
+        }
+
         //extension methods
 
         [Test]

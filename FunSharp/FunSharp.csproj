@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NoSuchElementException.cs" />
+    <Compile Include="Try.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Linq\EnumerableExtensions.cs" />
     <Compile Include="Maybe.cs" />

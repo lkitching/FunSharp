@@ -48,6 +48,7 @@
     <Compile Include="MaybeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestAssert.cs" />
+    <Compile Include="TryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
