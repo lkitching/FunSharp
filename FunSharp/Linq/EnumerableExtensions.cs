@@ -187,6 +187,40 @@ namespace FunSharp.Linq
             return MaybeComp<T>(seq, comp, Utils.Min);
         }
 
+        /// <summary>Similar to Enumerable.Aggregate but returns the sequence of intermediate values returned by the accumulator function.</summary>
+        /// <typeparam name="T">Element type of the input sequence.</typeparam>
+        /// <typeparam name="TAcc">The type of the accumulator.</typeparam>
+        /// <param name="seq">The input sequence.</param>
+        /// <param name="accf">Delegate to combine the current element of the sequence and the current accumulator value.</param>
+        /// <param name="init">The initial value of the accumulator.</param>
+        /// <returns>The sequence of the intermediate accumulator values. <paramref name="init"/> is always the first element of the output sequence, so it is always non-empty.</returns>
+        public static INonEmptyEnumerable<TAcc> Scan<T, TAcc>(this IEnumerable<T> seq, Func<TAcc, T, TAcc> accf, TAcc init)
+        {
+            Contract.Requires(seq != null);
+            Contract.Requires(accf != null);
+
+            return Seq.NonEmpty(init, ScanRest(seq, accf, init));
+        }
+
+        private static IEnumerable<TAcc> ScanRest<T, TAcc>(IEnumerable<T> seq, Func<TAcc, T, TAcc> accf, TAcc init)
+        {
+            TAcc current = init;
+            foreach (T item in seq)
+            {
+                current = accf(current, item);
+                yield return current;
+            }
+        }
+
+        /// <summary>Coalesces a null sequence into an empty sequence.</summary>
+        /// <typeparam name="T">The element type of the sequence.</typeparam>
+        /// <param name="seq">The input sequence.</param>
+        /// <returns>The input sequence <paramref name="seq"/> if it is non-null, otherwise an empty sequence.</returns>
+        public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> seq)
+        {
+            return seq ?? System.Linq.Enumerable.Empty<T>();
+        }
+
         private static Maybe<T> MaybeComp<T>(this IEnumerable<T> seq, IComparer<T> comp, Func<T, T, IComparer<T>, T> nextComp)
         {
             comp = comp ?? Comparer<T>.Default;

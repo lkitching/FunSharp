@@ -383,5 +383,35 @@ namespace FunSharp
             var m = nullable.ToMaybe();
             Assert.AreEqual(value, m.Value, "ToMaybe should wrap nullable struct value");
         }
+
+        [Test]
+        public void ToNullable_Should_Return_Null_For_None()
+        {
+            var m = new Maybe<int>();
+            Assert.IsNull(m.ToNullable(), "ToNullable should return null for empty");
+        }
+
+        [Test]
+        public void ToNullable_Should_Return_Value()
+        {
+            int value = 4;
+            var m = new Maybe<int>(value);
+            Assert.AreEqual(value, m.ToNullable(), "ToNullable should return inner value");
+        }
+
+        [Test]
+        public void ToClass_Should_Return_Null_For_None()
+        {
+            var m = new Maybe<string>();
+            Assert.IsNull(m.ToClass(), "ToClass should return null for empty");
+        }
+
+        [Test]
+        public void ToClass_Should_Return_Value()
+        {
+            string value = ":D";
+            var m = new Maybe<string>(value);
+            Assert.AreEqual(value, m.ToClass(), "ToClass should return inner reference");
+        }
     }
 }

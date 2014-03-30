@@ -160,6 +160,8 @@ namespace FunSharp
             return this.hasValue ? this.value.GetHashCode() : typeof(T).GetHashCode();
         }
 
+        /// <summary>Override of Object.ToString.</summary>
+        /// <returns>A description of the value if one exists, otherwise "None".</returns>
         public override string ToString()
         {
             return this.hasValue ? string.Format("Some({0})", this.value) : "None";
@@ -227,6 +229,24 @@ namespace FunSharp
         public static Maybe<T> ToMaybe<T>(this T value)
         {
             return value == null ? new Maybe<T>() : new Maybe<T>(value);
+        }
+
+        /// <summary>Converts the value of the given maybe to a nullable value type.</summary>
+        /// <typeparam name="T">The value type of the maybe.</typeparam>
+        /// <param name="maybe">The maybe.</param>
+        /// <returns>Null if <paramref name="maybe"/> is empty, otherwise the inner value.</returns>
+        public static T? ToNullable<T>(this Maybe<T> maybe) where T : struct
+        {
+            return maybe.HasValue ? maybe.Value : (T?)null;
+        }
+
+        /// <summary>Gets the value from the given maybe, or null if there is no value.</summary>
+        /// <typeparam name="T">The value type of the maybe.</typeparam>
+        /// <param name="maybe">The mabye.</param>
+        /// <returns>Null if <paramref name="maybe"/> is empty, otherwise the non-null reference value.</returns>
+        public static T ToClass<T>(this Maybe<T> maybe) where T : class
+        {
+            return maybe.GetOr((T)null);
         }
     }
 }

@@ -236,6 +236,35 @@ namespace FunSharp.Linq
             TestAssert.IsSome(seq.MaybeMin(), seq.Min());
         }
 
+        [Test]
+        public void Scan_Should_Yield_Intermediate_Values()
+        {
+            var seq = Enumerable.Range(1, 5).Scan((sum, i) => sum + i, 0);
+            CollectionAssert.AreEqual(new[] { 0, 1, 3, 6, 10, 15 }, seq, "Unexpected result sequence");
+        }
+
+        [Test]
+        public void Scan_Should_Yield_Initial_Accumulator_Value_For_Empty_Sequence()
+        {
+            int init = 4;
+            var seq = Enumerable.Empty<string>().Scan((i, s) => i + s.Length, init);
+            CollectionAssert.AreEqual(new[] { init }, seq, "Sequence should contain initial accumlator value only");
+        }
+
+        [Test]
+        public void EmptyIfNull_Should_Return_Input_Sequence()
+        {
+            var seq = new[] { 1, 2, 3 };
+            Assert.AreSame(seq, seq.EmptyIfNull(), "EmptyIfNull should return input sequence if non-null");
+        }
+
+        [Test]
+        public void EmptyIfNull_Should_Return_Empty_Sequence_If_Input_Null()
+        {
+            IEnumerable<string> seq = null;
+            CollectionAssert.IsEmpty(seq.EmptyIfNull(), "EmptyIfNull should return empty sequence if input sequence is null");
+        }
+
         private class TestReadOnlyList<T> : IReadOnlyList<T>
         {
             private readonly List<T> items;

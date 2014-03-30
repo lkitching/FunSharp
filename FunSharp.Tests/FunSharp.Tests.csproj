@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Linq\EnumerableExtensionsTests.cs" />
+    <Compile Include="Linq\NonEmptyEnumerableTests.cs" />
+    <Compile Include="Linq\SeqTests.cs" />
     <Compile Include="MaybeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestAssert.cs" />
