@@ -44,6 +44,10 @@
     <Compile Include="Linq\Seq.cs" />
     <Compile Include="NoSuchElementException.cs" />
     <Compile Include="Try.cs" />
+    <Compile Include="Typeclasses\Bounded.cs" />
+    <Compile Include="Typeclasses\Enum.cs" />
+    <Compile Include="Typeclasses\Monoid.cs" />
+    <Compile Include="Typeclasses\Num.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Linq\EnumerableExtensions.cs" />
     <Compile Include="Maybe.cs" />
