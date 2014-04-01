@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="F.cs" />
     <Compile Include="Linq\NonEmptyEnumerable.cs" />
     <Compile Include="Linq\Seq.cs" />
     <Compile Include="NoSuchElementException.cs" />
