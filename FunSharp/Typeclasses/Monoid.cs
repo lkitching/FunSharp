@@ -53,6 +53,11 @@ namespace FunSharp.Typeclasses
             return new Monoid<Maybe<T>> { Identity = Maybe.None<T>(), AppendFunc = (ma, mb) => mb.HasValue ? mb : ma };
         }
 
+        public static IMonoid<Func<T, T>> Endo<T>()
+        {
+            return new Monoid<Func<T, T>> { Identity = F.Id<T>(), AppendFunc = (fa, fb) => fa.Comp(fb) };
+        }
+
         private class Monoid<T> : IMonoid<T>
         {
             public T Identity { get; set; }
