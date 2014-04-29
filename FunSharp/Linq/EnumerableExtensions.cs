@@ -221,6 +221,27 @@ namespace FunSharp.Linq
             return seq ?? System.Linq.Enumerable.Empty<T>();
         }
 
+        /// <summary>Partitions a list according to a given predicate.</summary>
+        /// <typeparam name="T">The element type of the list.</typeparam>
+        /// <param name="seq">The sequence to partition.</param>
+        /// <param name="pred">The predicate.</param>
+        /// <returns>
+        /// A pair whose first item contains the elements of <paramref name="seq"/> for which <paramref name="pred"/> returned true, and whose second
+        /// contains those for which it returned false.
+        /// </returns>
+        public static Tuple<List<T>, List<T>> Partition<T>(this IEnumerable<T> seq, Func<T, bool> pred)
+        {
+            var tup = Tuple.Create(new List<T>(), new List<T>());
+
+            foreach (T item in seq)
+            {
+                List<T> list = pred(item) ? tup.Item1 : tup.Item2;
+                list.Add(item);
+            }
+
+            return tup;
+        }
+
         private static Maybe<T> MaybeComp<T>(this IEnumerable<T> seq, IComparer<T> comp, Func<T, T, IComparer<T>, T> nextComp)
         {
             comp = comp ?? Comparer<T>.Default;

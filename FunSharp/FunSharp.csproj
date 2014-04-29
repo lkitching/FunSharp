@@ -39,11 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Either.cs" />
     <Compile Include="F.cs" />
     <Compile Include="Linq\NonEmptyEnumerable.cs" />
     <Compile Include="Linq\Seq.cs" />
     <Compile Include="NoSuchElementException.cs" />
     <Compile Include="Try.cs" />
+    <Compile Include="TupleExtensions.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Linq\EnumerableExtensions.cs" />
     <Compile Include="Maybe.cs" />

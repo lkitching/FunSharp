@@ -265,6 +265,14 @@ namespace FunSharp.Linq
             CollectionAssert.IsEmpty(seq.EmptyIfNull(), "EmptyIfNull should return empty sequence if input sequence is null");
         }
 
+        [Test]
+        public void Partition_Should_Partition_Sequence()
+        {
+            var p = Enumerable.Range(1, 6).Partition(i => i % 2 == 0);
+            CollectionAssert.AreEqual(new[] { 2, 4, 6 }, p.Item1);
+            CollectionAssert.AreEqual(new[] { 1, 3, 5 }, p.Item2);
+        }
+
         private class TestReadOnlyList<T> : IReadOnlyList<T>
         {
             private readonly List<T> items;

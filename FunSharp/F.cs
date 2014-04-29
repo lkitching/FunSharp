@@ -59,5 +59,14 @@ namespace FunSharp
             Contract.Requires(f != null);
             return (x, y) => f(x)(y);
         }
+
+        /// <summary>Negates a given predicate.</summary>
+        /// <typeparam name="T">The input type for the predicate.</typeparam>
+        /// <param name="pred">The predicate to negate.</param>
+        /// <returns>Returns a predicate which returns true whenever <paramref name="pred"/> returns false, and false when it returns true.</returns>
+        public static Func<T, bool> Not<T>(this Func<T, bool> pred)
+        {
+            return x => !pred(x);
+        }
     }
 }

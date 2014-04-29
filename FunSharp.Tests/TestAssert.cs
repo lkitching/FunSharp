@@ -9,6 +9,15 @@ namespace FunSharp
 {
     public static class TestAssert
     {
+        public static void AreEqual<T>(T expected, T actual, IEqualityComparer<T> comp = null, string message = null)
+        {
+            comp = comp ?? EqualityComparer<T>.Default;
+            if (!comp.Equals(expected, actual))
+            {
+                Assert.Fail(message ?? string.Format("Expected '{0}' but got '{1}'", expected, actual));
+            }
+        }
+
         public static void IsNone<T>(Maybe<T> maybe)
         {
             Assert.IsFalse(maybe.HasValue, "Maybe should be empty");
