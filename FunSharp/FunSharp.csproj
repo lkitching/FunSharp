@@ -48,6 +48,7 @@
     <Compile Include="Typeclasses\Enum.cs" />
     <Compile Include="Typeclasses\Monoid.cs" />
     <Compile Include="Typeclasses\Num.cs" />
+    <Compile Include="Unit.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Linq\EnumerableExtensions.cs" />
     <Compile Include="Maybe.cs" />
