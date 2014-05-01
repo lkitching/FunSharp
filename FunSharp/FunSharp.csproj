@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,11 @@
     <Compile Include="Linq\Seq.cs" />
     <Compile Include="NoSuchElementException.cs" />
     <Compile Include="Try.cs" />
+    <Compile Include="Typeclasses\Bounded.cs" />
+    <Compile Include="Typeclasses\Enum.cs" />
+    <Compile Include="Typeclasses\Monoid.cs" />
+    <Compile Include="Typeclasses\Num.cs" />
+    <Compile Include="Unit.cs" />
     <Compile Include="TupleExtensions.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Linq\EnumerableExtensions.cs" />
