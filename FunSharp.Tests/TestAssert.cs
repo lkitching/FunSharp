@@ -47,5 +47,20 @@ namespace FunSharp
                 Assert.AreEqual(expected, ex, "Unexpected exception for failed try");
             }
         }
+
+        public static void TaskException<TException>(Task t) where TException : Exception
+        {
+            TaskException<TException>(t, _ => { });
+        }
+
+        public static void TaskException<TException>(Task t, Action<TException> exAssert) where TException : Exception
+        {
+            Assert.IsTrue(t.IsFaulted, "Task is not faulted");
+
+            var innerEx = t.Exception.InnerException;
+            Assert.IsInstanceOf<TException>(innerEx, "Unexpected task exception type");
+
+            exAssert((TException)innerEx);
+        }
     }
 }

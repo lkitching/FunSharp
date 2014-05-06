@@ -45,6 +45,8 @@
     <Compile Include="Linq\NonEmptyEnumerable.cs" />
     <Compile Include="Linq\Seq.cs" />
     <Compile Include="NoSuchElementException.cs" />
+    <Compile Include="Tasks\TaskExtensions.cs" />
+    <Compile Include="Tasks\TaskOf.cs" />
     <Compile Include="Try.cs" />
     <Compile Include="Typeclasses\Bounded.cs" />
     <Compile Include="Typeclasses\Enum.cs" />
