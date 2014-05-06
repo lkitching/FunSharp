@@ -47,6 +47,10 @@
     <Compile Include="NoSuchElementException.cs" />
     <Compile Include="Tasks\TaskExtensions.cs" />
     <Compile Include="Tasks\TaskOf.cs" />
+    <Compile Include="Ord\ComparableExtensions.cs" />
+    <Compile Include="Ord\Orderer.cs" />
+    <Compile Include="Ord\OrdererComparer.cs" />
+    <Compile Include="Ord\Ordering.cs" />
     <Compile Include="Try.cs" />
     <Compile Include="Typeclasses\Bounded.cs" />
     <Compile Include="Typeclasses\Enum.cs" />

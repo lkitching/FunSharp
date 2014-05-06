@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FunSharp.Ord;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,6 +41,12 @@ namespace FunSharp.Typeclasses
                 Identity = Tuple.Create(am.Identity, bm.Identity),
                 AppendFunc = (t1, t2) => Tuple.Create(am.Append(t1.Item1, t2.Item1), bm.Append(t1.Item2, t2.Item2))
             };
+        }
+
+        /// <summary>Monoid instance for <see cref="Ordering"/>.</summary>
+        public static IMonoid<Ordering> Ordering
+        {
+            get { return new Monoid<Ordering> { Identity = Ord.Ordering.LT, AppendFunc = (x, y) => x == Ord.Ordering.EQ ? y : x }; }
         }
 
         /// <summary>Monoid instance for functions with a monoidal return type.</summary>
