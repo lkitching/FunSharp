@@ -68,5 +68,43 @@ namespace FunSharp
         {
             return x => !pred(x);
         }
+
+        /// <summary>Creates a function which reverse the argument of a given input function.</summary>
+        /// <typeparam name="A">Type of the first argument of the input function.</typeparam>
+        /// <typeparam name="B">Type of the second argument of the input function.</typeparam>
+        /// <typeparam name="TResult">The result type of <paramref name="f"/>.</typeparam>
+        /// <param name="f">The function to flip.</param>
+        /// <returns>A function which applies the argument to <paramref name="f"/> in reverse order.</returns>
+        public static Func<B, A, TResult> Flip<A, B, TResult>(this Func<A, B, TResult> f)
+        {
+            return (x, y) => f(y, x);
+        }
+
+        public static Func<A, A, TResult> On<A, B, TResult>(this Func<B, B, TResult> f, Func<A, B> transFunc)
+        {
+            return (x, y) => f(transFunc(x), transFunc(y));
+        }
+
+        /// <summary>Converts an action into a func returning <see cref="Unit"/>.</summary>
+        /// <typeparam name="T">The argument type of the given action.</typeparam>
+        /// <param name="act">The action to wrap.</param>
+        /// <returns>A func which executes <paramref name="act"/> for its effects and then returns the unit value.</returns>
+        public static Func<T, Unit> ToFunc<T>(this Action<T> act)
+        {
+            return arg =>
+            {
+                act(arg);
+                return Unit.Instance;
+            };
+        }
+
+        /// <summary>Wraps a unit-returning func in an action.</summary>
+        /// <typeparam name="T">The argument type of the given func.</typeparam>
+        /// <param name="f">The func to wrap.</param>
+        /// <returns>An action which executes <paramref name="f"/> and discards its return value.</returns>
+        public static Action<T> ToAction<T>(this Func<T, Unit> f)
+        {
+            return arg => { f(arg); };
+        }
     }
 }
