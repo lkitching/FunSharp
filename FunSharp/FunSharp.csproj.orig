@@ -45,17 +45,15 @@
     <Compile Include="Linq\NonEmptyEnumerable.cs" />
     <Compile Include="Linq\Seq.cs" />
     <Compile Include="NoSuchElementException.cs" />
-    <Compile Include="Ord\ComparableComparer.cs" />
-    <Compile Include="Ord\ComparerExtensions.cs" />
-    <Compile Include="Ord\CompositeComparer.cs" />
-    <Compile Include="Ord\FuncComparer.cs" />
-    <Compile Include="Ord\Order.cs" />
+<<<<<<< HEAD
     <Compile Include="Tasks\TaskExtensions.cs" />
     <Compile Include="Tasks\TaskOf.cs" />
+=======
     <Compile Include="Ord\ComparableExtensions.cs" />
     <Compile Include="Ord\Orderer.cs" />
     <Compile Include="Ord\OrdererComparer.cs" />
     <Compile Include="Ord\Ordering.cs" />
+>>>>>>> Create Ordering type and orderer/comparer extension methods.
     <Compile Include="Try.cs" />
     <Compile Include="Typeclasses\Bounded.cs" />
     <Compile Include="Typeclasses\Enum.cs" />
