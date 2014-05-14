@@ -50,6 +50,7 @@
     <Compile Include="Linq\SeqTests.cs" />
     <Compile Include="MaybeTests.cs" />
     <Compile Include="Ord\ComparerExtensionsTests.cs" />
+    <Compile Include="Ord\CompositeComparerTests.cs" />
     <Compile Include="Ord\FuncComparerTests.cs" />
     <Compile Include="Ord\OrdererComparerTests.cs" />
     <Compile Include="Ord\OrderingExtensionsTests.cs" />
