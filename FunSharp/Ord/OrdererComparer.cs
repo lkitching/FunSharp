@@ -17,6 +17,10 @@ namespace FunSharp.Ord
             this.ord = ordFunc;
         }
 
+        /// <summary>Compares two items.</summary>
+        /// <param name="x">The first item.</param>
+        /// <param name="y">The second item.</param>
+        /// <returns>The result of applying the given ordering delegate converted to an int comparison result.</returns>
         public int Compare(T x, T y)
         {
             Ordering result = this.ord(x, y);

@@ -40,7 +40,7 @@ namespace FunSharp.Ord
         /// <returns>The reverse of <paramref name="ord"/>.</returns>
         public static Ordering Reverse(this Ordering ord)
         {
-            return (Ordering)Math.Abs((int)ord);
+            return (Ordering)(-1 * (int)ord);
         }
     }
 }

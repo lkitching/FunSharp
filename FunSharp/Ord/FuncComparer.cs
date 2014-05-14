@@ -37,4 +37,12 @@ namespace FunSharp.Ord
             return this.resultComparer.Compare(compFunc(x), compFunc(y));
         }
     }
+
+    public static class FuncComparer
+    {
+        public static FuncComparer<T, P> Create<T, P>(Func<T, P> selector) where P : IComparable<P>
+        {
+            return new FuncComparer<T, P>(selector, new ComparableComparer<P>());
+        }
+    }
 }
