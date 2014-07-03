@@ -59,7 +59,9 @@
     <Compile Include="Ord\Ordering.cs" />
     <Compile Include="Try.cs" />
     <Compile Include="Typeclasses\Bounded.cs" />
+    <Compile Include="Typeclasses\DefaultEnum.cs" />
     <Compile Include="Typeclasses\Enum.cs" />
+    <Compile Include="Typeclasses\EnumInstances.cs" />
     <Compile Include="Typeclasses\Monoid.cs" />
     <Compile Include="Typeclasses\Num.cs" />
     <Compile Include="Unit.cs" />
