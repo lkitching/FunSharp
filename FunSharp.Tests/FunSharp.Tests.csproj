@@ -55,6 +55,7 @@
     <Compile Include="Ord\OrdererComparerTests.cs" />
     <Compile Include="Ord\OrderingExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateTests.cs" />
     <Compile Include="Tasks\TaskExtensionsTests.cs" />
     <Compile Include="Tasks\TaskOfTests.cs" />
     <Compile Include="TestAssert.cs" />
